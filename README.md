@@ -8,11 +8,12 @@
 
 <br/>
 <br/>
+<br/>
+<br/>
 
-This plugin uses your [`ALPHAVANTAGE_API_KEY`][av] to download the prices of
-your [hledger][hledger] stock holdings and print them in a journal-friendly
-format. This means you can have something like an [anacron][cron] job
-periodically append the output to your active journal.
+This plugin provides the `stocks2ledger` function. `stocks2ledger` reads your
+[hledger][hledger] journal for commodities, and tries to grab their price from
+the [Alpha Vantage API][av], outputting them in a journal-friendly format.
 
 [av]: https://www.alphavantage.co
 [hledger]: https://hledger.org
@@ -26,9 +27,17 @@ $ omf install stocks2ledger
 
 ## Usage
 
+You must set the `ALPHAVANTAGE_API_KEY` environment variable before running.
+You can optionally set the `STOCKS_EXCLUDE` environment variable; a
+pipe-separated list of symbols you don't want to fetch prices for (e.g.
+`USD|GBP`).
+
 ```fish
-$ stocks2ledger
+$ stocks2ledger [-d|--dry-run]
 ```
+
+Invoking with the dry-run flag will show you what the output will be
+sans-prices (e.g. to make sure `STOCKS_EXCLUDE` is set correctly).
 
 # License
 
