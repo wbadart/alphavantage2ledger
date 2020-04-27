@@ -7,7 +7,16 @@
 [![Oh My Fish Framework](https://img.shields.io/badge/Oh%20My%20Fish-Framework-007EC7.svg?style=flat-square)](https://www.github.com/oh-my-fish/oh-my-fish)
 
 <br/>
+<br/>
 
+This plugin uses your [`ALPHAVANTAGE_API_KEY`][av] to download the prices of
+your [hledger][hledger] stock holdings and print them in a journal-friendly
+format. This means you can have something like an [anacron][cron] job
+periodically append the output to your active journal.
+
+[av]: https://www.alphavantage.co
+[hledger]: https://hledger.org
+[cron]: https://linux.die.net/man/8/anacron
 
 ## Install
 
@@ -15,13 +24,11 @@
 $ omf install stocks2ledger
 ```
 
-
 ## Usage
 
 ```fish
 $ stocks2ledger
 ```
-
 
 # License
 
