@@ -5,7 +5,7 @@ function stocks2ledger -d "My package"
     set -l gtg 0
     for prog in $argv
       if not command -v $prog >/dev/null 
-        echo "Please install \"$prog\" to continue"
+        echo "Please install \"$prog\" to continue" >&2
         set -l gtg 1
       end
     end
